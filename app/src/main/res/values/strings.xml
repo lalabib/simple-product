@@ -1,3 +1,32 @@
 <resources>
     <string name="app_name">Simple Product</string>
+
+    <string name="home_title">Home</string>
+    <string name="detail_title">Detail</string>
+    <string name="register_title">Buat Akun</string>
+    <string name="login_title">Masuk</string>
+
+    <string name="name">Name of Product</string>
+    <string name="desc">Deskripsi</string>
+    <string name="price">Price</string>
+    <string name="image_description">deskripsi gambar</string>
+    <string name="author">Penulis</string>
+    <string name="publicationYear">Tahun Terbit</string>
+    <string name="publisher">Penerbit</string>
+    <string name="notes">Note</string>
+
+    <string name="login_message">Selamat Datang di SimpleProdoct!</string>
+    <string name="signup_message">Silakan lengkapi data Anda di bawah ini!</string>
+    <string name="login_text">Sudah mempunyai akun?<font fgcolor="#2196F3"> Masuk</font></string>
+    <string name="signup_text">Belum mempunyai akun?<font fgcolor="#2196F3"> Daftar </font></string>
+    <string name="signup_success">Akun berhasil dibuat</string>
+    <string name="login_success">Berhasil masuk</string>
+    <string name="confirm_logout">konfirmasi keluar</string>
+    <string name="logout_message">Apakah anda yakin ingin keluar dari aplikasi?</string>
+    <string name="yes">Iya</string>
+    <string name="no">Tidak</string>
+
+    <string name="btn_order">Beli Sekarang</string>
+    <string name="btn_regist">Daftar Akun</string>
+    <string name="btn_login">Masuk</string>
 </resources>

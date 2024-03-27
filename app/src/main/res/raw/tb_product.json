@@ -1,0 +1,124 @@
+{
+  "tb_product": [
+    {
+      "id": "132193",
+      "name": "Home Sweet Loan",
+      "description": "Empat orang yang berteman sejak SMA bekerja di perusahaan yang sama meski beda nasib. Di usia 31 tahun, mereka berburu rumah idaman yang minimal nyerempet Jakarta. Kaluna, pegawai Bagian Umum, yang gajinya tak pernah menyentuh dua digit. Gadis ini bekerja sampingan sebagai model bibir, bermimpi membeli rumah demi keluar dari situasi tiga kepala keluarga yang bertumpuk di bawah satu atap. Di tengah perjuangannya menabung, Kaluna dirongrong oleh kekasihnya untuk pesta pernikahan mewah.",
+      "price": 78000,
+      "image": "https://raw.githubusercontent.com/lalabib/image-view/main/book_1.jpg",
+	  "author": "Almira Bastari",
+	  "publicationYear": "15 Feb 2022",
+	  "publisher": "Gramedia Pustaka Utama"
+    },
+	{
+      "id": "236952",
+      "name": "Laut Bercerita",
+      "description": "Laut Bercerita, novel terbaru Leila S. Chudori, bertutur tentang kisah keluarga yang kehilangan, sekumpulan sahabat yang merasakan kekosongan di dada, sekelompok orang yang gemar menyiksa dan lancar berkhianat, sejumlah keluarga yang mencari kejelasan makam anaknya, dan tentang cinta yang tak akan luntur.",
+      "price": 144000,
+      "image": "https://raw.githubusercontent.com/lalabib/image-view/main/book_2.jpg",
+	  "author": "Leila S. Chudori",
+	  "publicationYear": "2 Agt 2022",
+	  "publisher": "Kepustakaan Populer Gramedia"
+    },
+	{
+      "id": "331739",
+      "name": "Pasta Kacang Merah",
+      "description": "Sentaro gagal menjalani kehidupan. Ia memiliki catatan kriminal, sulit meninggalkan kebiasaan minum alkohol, dan impiannya menjadi penulis semakin lama semakin pudar. Ia menghabiskan hari-hari monoton di sebuah kedai dorayaki yang berada di bawah pohon sakura yang berubah seiring perubahan musim.",
+      "price": 64000,
+      "image": "https://raw.githubusercontent.com/lalabib/image-view/main/book_3.jpg",
+	  "author": "Durian Sukegawa",
+	  "publicationYear": "5 Okt 2022",
+	  "publisher": "Gramedia Pustaka Utama"
+    },
+	{
+      "id": "435124",
+      "name": "Terdidik (Educated)",
+      "description": "Lahir dari keluarga komunitas penyintas di pegunungan Idaho, Tara Westover berusia tujuh belas tahun saat pertama kali menginjakkan kakinya di ruang kelas. Keluarganya sangat terisolasi dari masyarakat kebanyakan sehingga tidak ada yang memastikan apakah anak-anak mereka mendapatkan pendidikan, dan tidak ada yang turun tangan ketika salah seorang kakak laki-laki Tara melakukan kekerasan.",
+      "price": 89000,
+      "image": "https://raw.githubusercontent.com/lalabib/image-view/main/book_4.jpg",
+	  "author": "Tara Westover",
+	  "publicationYear": "13 Apr 2021",
+	  "publisher": "Gramedia Pustaka Utama"
+    },
+	{
+      "id": "535228",
+      "name": "Layangan Putus",
+      "description": "Seorang gadis remaja polos yang berasal dari daerah, tumbuh, berkembang, dan menemukan cinta di kota besar yang sangat berbeda dengan iklim daerah asalnya. Mimpi sederhananya menyambung pendidikan dan menyelesaikannya tepat waktu, namun berubah setelah ia mengenal sosok lelaki tangguh Lelaki yang mandiri dan berpendirian keras mengenalkannya dengan dunia baru yang belum pernah ia temui. Dunia yang asyik dan menyenangkan yang berbeda total dengan kehidupan remaja di daerah asalnya.",
+      "price": 75000,
+      "image": "https://raw.githubusercontent.com/lalabib/image-view/main/book_5.jpg",
+	  "author": "Mommy ASF",
+	  "publicationYear": "19 Feb 2010",
+	  "publisher": "Rdm Publishers"
+    },
+	{
+      "id": "638611",
+      "name": "Melangkah",
+      "description": "Listrik padam di seluruh Jawa dan Bali secara misterius. Ancaman nyata kekuatan baru yang hendak menaklukkan Nusantara. Saat yang sama, empat sahabat mendarat di Sumba, hanya untuk mendapati nasib ratusan juta manusia ada di tangan mereka! Empat mahasiswa ekonomi ini, harus bertarung melawan pasukan berkuda yang bisa melontarkan listrik! Semua dipersulit oleh seorang buronan tingkat tinggi bertopeng pahlawan yang punya rencana mengerikan.",
+      "price": 62000,
+      "image": "https://raw.githubusercontent.com/lalabib/image-view/main/book_6.jpg",
+	  "author": "Js. Khairen",
+	  "publicationYear": "22 Mar 2020",
+	  "publisher": "Gramedia Widiasarana Indonesia"
+    },
+	{
+      "id": "731647",
+      "name": "Perpustakaan Tengah Malam",
+      "description": "Nora Seed mendapati dirinya dihadapkan pada keputusan ini. Dihadapkan dengan kemungkinan mengubah hidupnya untuk yang baru, mengikuti karir yang berbeda, membatalkan perpisahan lama, mewujudkan mimpinya menjadi ahli glasiologi, menjalani kehidupannya sebagai atlet renang kelas dunia, serta banyak hal lain yang dapat dicoba.",
+      "price": 73000,
+      "image": "https://raw.githubusercontent.com/lalabib/image-view/main/book_7.jpg",
+	  "author": "Matt Haig",
+	  "publicationYear": "9 Jun 2021",
+	  "publisher": "Gramedia Pustaka Utama"
+    },
+	{
+      "id": "833454",
+      "name": "Pembunuhan di Rumah Miring",
+      "description": "Rumah Miring itu bertengger di tebing berselimut salju yang menghadap ke lautan es di ujung utara Jepang yang terpencil. Tempat yang aneh, tetapi di situlah sang jutawan Kozaburo Hamamoto membangunnya. Banyak labirin lantai yang miring dan tangga-tangga di tempat yang tidak biasa, juga topeng-topeng dan boneka seukuran manusia yang seram.",
+      "price": 75000,
+      "image": "https://raw.githubusercontent.com/lalabib/image-view/main/book_8.jpg",
+	  "author": "Soji Shimada",
+	  "publicationYear": "22 Mar 2020",
+	  "publisher": "Gramedia Pustaka Utama"
+    },
+	{
+      "id": "937216",
+      "name": "Sagaras",
+      "description": "Di buku ke-13 serial BUMI, akhirnya, siapa orang tua Ali dijawab di buku ini. Ali, bertahun-tahun, berusaha memecahkan misteri itu. Kali ini, Ali melupakan sekolah. Sudah 3 hari ia tidak hadir di sekolah, membolos. Raib dan Seli tentu tidak akan membiarkan Ali sendirian memecahkan misteri tersebut, seperti layaknya sahabat sejati. Memulai perjalanannya, mereka berusaha mencari orang tuanya dan letak klan Sagaras.",
+      "price": 80000,
+      "image": "https://raw.githubusercontent.com/lalabib/image-view/main/book_9.jpg",
+	  "author": "Tere Liye",
+	  "publicationYear": "3 Mar 2022",
+	  "publisher": "Penerbit Sabak Grip"
+    },
+	{
+      "id": "103766",
+      "name": "Selena",
+      "description": "Tentang persahabatan tiga mahasiswa, yang diam-diam memiliki rencana bertualang ke tempat-tempat jauh. Tapi petualangan itu berakhir buruk, saat persahabatan mereka diuji dengan rasa suka, egoisme, dan pengkhianatan. Ada banyak karakter baru, tempat-tempat baru, juga sejarah dunia paralel yang diungkap.",
+      "price": 85000,
+      "image": "https://raw.githubusercontent.com/lalabib/image-view/main/book_10.jpg",
+	  "author": "Tere Liye",
+	  "publicationYear": "19 Mar 2016",
+	  "publisher": "Gramedia Pustaka Utama"
+    },
+	{
+      "id": "119028",
+      "name": "Nebula",
+      "description": "Tapi petualangan itu berakhir buruk, saat persahabatan mereka diuji dengan rasa suka, egoisme, dan pengkhianatan. Ada banyak karakter baru, tempat-tempat baru, juga sejarah dunia paralel yang diungkap. Di dua buku ini kalian akan berkenalan dengan salah satu karakter paling kuat di dunia paralel sejauh ini. Tapi itu jika kalian bisa menebaknya. Dua buku ini bukan akhir. Justru awal terbukanya kembali portal menuju Klan Aldebaran.",
+      "price": 71000,
+      "image": "https://raw.githubusercontent.com/lalabib/image-view/main/book_11.jpg",
+	  "author": "Tere Liye",
+	  "publicationYear": "15 Mar 2020",
+	  "publisher": "Gramedia Pustaka Utama"
+    },
+	{
+      "id": "127730",
+      "name": "Bintang",
+      "description": "Raib, seorang remaja pada umumnya, tetapi tanpa disangka merupakan seorang putri keturunan dari klan Bulan, memiliki kekuatan menghilang dalam sekejap. Kemudian, Seli adalah seorang remaja berasal dari klan Matahari yang berada di Bumi sebab mamanya yang berasal dari Matahari turun dan menetap di Bumi. Ia mempunyai kemampuan dapat mengeluarkan petir.",
+      "price": 77000,
+      "image": "https://raw.githubusercontent.com/lalabib/image-view/main/book_12.jpg",
+	  "author": "Tere Liye",
+	  "publicationYear": "11 Jun 20170",
+	  "publisher": "Gramedia Pustaka Utama"
+    }
+  ]
+}
