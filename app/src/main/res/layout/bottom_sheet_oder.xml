@@ -74,17 +74,43 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="top"
-            android:lines="3" />
+            android:lines="2" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <com.lalabib.latihan.simpleproduct.views.StepCounter
-        android:id="@+id/counter"
+    <LinearLayout
+        android:id="@+id/ll_counter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="16dp"
+        android:background="@drawable/item_counter_bg"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tf_note" />
+        app:layout_constraintTop_toBottomOf="@id/tf_note">
+
+        <ImageView
+            android:id="@+id/decrease"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/image_description"
+            android:src="@drawable/ic_minus" />
+
+        <TextView
+            android:id="@+id/count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:text="@string/default_value"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/increase"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/image_description"
+            android:src="@drawable/ic_plus" />
+
+    </LinearLayout>
 
     <TextView
         android:id="@+id/tv_sum"

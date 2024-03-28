@@ -1,5 +1,6 @@
 package com.lalabib.latihan.simpleproduct.domain.usecase
 
+import com.lalabib.latihan.simpleproduct.data.local.entity.OrderEntity
 import com.lalabib.latihan.simpleproduct.data.local.entity.ProductEntity
 import com.lalabib.latihan.simpleproduct.domain.repository.IProductRepository
 import kotlinx.coroutines.flow.Flow
@@ -13,4 +14,7 @@ class ProductInteractor @Inject constructor(private val productRepository: IProd
     override fun getProductById(id: String): Flow<ProductEntity> =
         productRepository.getProductById(id)
 
+    override suspend fun insertOrder(order: OrderEntity) = productRepository.insertOrder(order)
+
+    override fun getAllOrder(): Flow<List<OrderEntity>> = productRepository.getAllOrder()
 }

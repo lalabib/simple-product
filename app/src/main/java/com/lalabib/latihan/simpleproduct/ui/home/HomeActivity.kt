@@ -3,11 +3,15 @@ package com.lalabib.latihan.simpleproduct.ui.home
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import androidx.activity.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
+import com.lalabib.latihan.simpleproduct.R
 import com.lalabib.latihan.simpleproduct.adapter.ProductAdapter
 import com.lalabib.latihan.simpleproduct.databinding.ActivityHomeBinding
 import com.lalabib.latihan.simpleproduct.ui.detail.DetailActivity
+import com.lalabib.latihan.simpleproduct.ui.profile.ProfileActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -40,6 +44,21 @@ class HomeActivity : AppCompatActivity() {
 
         homeViewModel.getProduct.observe(this@HomeActivity) {
             productAdapter.submitList(it)
+        }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.home_menu, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.profile -> {
+                startActivity(Intent(this@HomeActivity, ProfileActivity::class.java))
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
         }
     }
 }

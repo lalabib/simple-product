@@ -16,23 +16,27 @@ import org.json.JSONObject
 import java.io.BufferedReader
 import java.io.IOException
 import java.io.InputStreamReader
+import javax.inject.Inject
+import javax.inject.Singleton
 
-class StartingProduct (private val context: Context): RoomDatabase.Callback() {
+@Singleton
+class StartingProduct @Inject constructor(
+    private val context: Context,
+) : RoomDatabase.Callback() {
 
     override fun onCreate(db: SupportSQLiteDatabase) {
         super.onCreate(db)
         CoroutineScope(Dispatchers.IO).launch {
-            fillWithStartingProduct(context)
+            fillWithStartingProduct()
         }
     }
 
     //Filling database with the data from JSON
-    private fun fillWithStartingProduct(context: Context) {
-        //obtaining instance of data access object
-        val database = Room.databaseBuilder(context, ProductDatabase::class.java, "Product.db")
-            .build()
-        val dao = database.productDao()
-        val jsonArray = loadJsonArrayProduct(context)
+    private suspend fun fillWithStartingProduct() {
+        val database = ProductDatabase.getInstance(context)
+        val productDao = database.productDao()
+
+        val jsonArray = loadJsonArrayProduct()
         // using try catch to load the necessary data
         try {
             if (jsonArray != null) {
@@ -41,26 +45,25 @@ class StartingProduct (private val context: Context): RoomDatabase.Callback() {
                     val item = jsonArray.getJSONObject(i)
                     //Using the JSON object to assign data, loaded to entity and insert to db
                     val product = ProductEntity(
-                            item.getString("id"),
-                            item.getString("name"),
-                            item.getString("description"),
-                            item.getInt("price"),
-                            item.getString("image"),
-                            item.getString("author"),
-                            item.getString("publicationYear"),
-                            item.getString("publisher"),
-                        )
-                    dao.insertAllProduct(product)
+                        item.getString("id"),
+                        item.getString("name"),
+                        item.getString("description"),
+                        item.getInt("price"),
+                        item.getString("image"),
+                        item.getString("author"),
+                        item.getString("publicationYear"),
+                        item.getString("publisher"),
+                    )
+                    productDao.insertAllProduct(product)
                 }
             }
         } catch (exception: JSONException) {
             exception.printStackTrace()
         }
-        database.close()
     }
 
     //read json array and load it to tb_product
-    private fun loadJsonArrayProduct(context: Context): JSONArray? {
+    private fun loadJsonArrayProduct(): JSONArray? {
         val builder = StringBuilder()
         val data = context.resources.openRawResource(R.raw.tb_product)
         //using Buffered reader to read the input stream byte

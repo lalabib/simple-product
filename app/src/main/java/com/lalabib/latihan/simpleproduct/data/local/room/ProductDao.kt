@@ -4,6 +4,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import com.lalabib.latihan.simpleproduct.data.local.entity.OrderEntity
 import com.lalabib.latihan.simpleproduct.data.local.entity.ProductEntity
 import kotlinx.coroutines.flow.Flow
 
@@ -11,11 +12,17 @@ import kotlinx.coroutines.flow.Flow
 interface ProductDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertAllProduct(product: ProductEntity)
+    suspend fun insertAllProduct(vararg product: ProductEntity)
 
     @Query("Select * From product_tb")
     fun getAllProduct(): Flow<List<ProductEntity>>
 
     @Query("Select * from product_tb where id = :id")
     fun getProductById(id: String): Flow<ProductEntity>
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertOrder(order: OrderEntity)
+
+    @Query("Select * From order_tb")
+    fun getAllOrder(): Flow<List<OrderEntity>>
 }

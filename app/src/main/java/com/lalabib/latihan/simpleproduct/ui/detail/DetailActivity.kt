@@ -3,13 +3,18 @@ package com.lalabib.latihan.simpleproduct.ui.detail
 import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
+import android.widget.Toast
 import androidx.activity.viewModels
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.lalabib.latihan.simpleproduct.R
+import com.lalabib.latihan.simpleproduct.data.local.entity.OrderEntity
 import com.lalabib.latihan.simpleproduct.data.local.entity.ProductEntity
 import com.lalabib.latihan.simpleproduct.databinding.ActivityDetailBinding
 import com.lalabib.latihan.simpleproduct.databinding.BottomSheetOderBinding
+import com.lalabib.latihan.simpleproduct.utils.SharedObject.disableView
+import com.lalabib.latihan.simpleproduct.utils.SharedObject.enableView
 import com.lalabib.latihan.simpleproduct.utils.SharedObject.loadImage
 import dagger.hilt.android.AndroidEntryPoint
 import java.text.NumberFormat
@@ -23,6 +28,10 @@ class DetailActivity : AppCompatActivity() {
 
     private lateinit var product: ProductEntity
     private val detailViewModel: DetailViewModel by viewModels()
+
+    private var currentCount = 1
+    private lateinit var countChangeListener: (count: Int) -> Unit
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityDetailBinding.inflate(layoutInflater)
@@ -86,6 +95,33 @@ class DetailActivity : AppCompatActivity() {
         dialog.show()
 
         bsBinding.apply {
+            val decreaseBtn = bsBinding.decrease
+            val increaseBtn = bsBinding.increase
+            val count = bsBinding.count
+            decreaseBtn.disableView()
+
+            increaseBtn.setOnClickListener {
+                currentCount = count.text.toString().toInt()
+                currentCount++
+                if (currentCount > 1)
+                    decreaseBtn.enableView()
+                count.text = currentCount.toString()
+                countChangeListener(currentCount)
+            }
+
+            decreaseBtn.setOnClickListener {
+                currentCount = count.text.toString().toInt()
+                currentCount--
+                if (currentCount <= 1)
+                    decreaseBtn.disableView()
+                count.text = currentCount.toString()
+                countChangeListener(currentCount)
+            }
+
+            fun registerCountListener(listener: (count: Int) -> Unit) {
+                countChangeListener = listener
+            }
+
             val locale = Locale("id", "ID")
             val formatter = NumberFormat.getNumberInstance(locale)
             formatter.maximumFractionDigits = 3
@@ -95,10 +131,35 @@ class DetailActivity : AppCompatActivity() {
             tvPrice.text = formattedPrice
             loadImage(ivImage, product.image)
 
-            counter.registerCountListener { count ->
-                val sumPrice = product.price * count
-                val formattedPriceSum = "Rp" + formatter.format(sumPrice)
+            registerCountListener { counter ->
+                val priceSum = product.price * counter
+                val formattedPriceSum = "Rp" + formatter.format(priceSum)
                 tvPrice.text = formattedPriceSum
+
+                bsBinding.btnOrder.setOnClickListener {
+                    val notes = bsBinding.addNote.text.toString()
+                    val order = OrderEntity(
+                        id = product.id,
+                        name = product.name,
+                        description = product.description,
+                        price = product.price,
+                        image = product.image,
+                        author = product.author,
+                        publicationYear = product.publicationYear,
+                        publisher = product.publisher,
+                        note = notes,
+                        quantity = counter,
+                        sumPrice = priceSum
+                    )
+
+                    detailViewModel.insertOrder(order)
+                    dialog.cancel()
+                    Toast.makeText(
+                        this@DetailActivity,
+                        getString(R.string.order_confirm),
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
             }
 
             icClose.setOnClickListener { dialog.cancel() }

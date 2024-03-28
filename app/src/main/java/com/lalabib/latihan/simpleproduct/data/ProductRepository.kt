@@ -1,6 +1,7 @@
 package com.lalabib.latihan.simpleproduct.data
 
 import com.lalabib.latihan.simpleproduct.data.local.LocalDataSource
+import com.lalabib.latihan.simpleproduct.data.local.entity.OrderEntity
 import com.lalabib.latihan.simpleproduct.data.local.entity.ProductEntity
 import com.lalabib.latihan.simpleproduct.domain.repository.IProductRepository
 import kotlinx.coroutines.flow.Flow
@@ -16,5 +17,9 @@ class ProductRepository @Inject constructor(
 
     override fun getProductById(id: String): Flow<ProductEntity> =
         localDataSource.getProductById(id)
+
+    override suspend fun insertOrder(order: OrderEntity) = localDataSource.insertOrder(order)
+
+    override fun getAllOrder(): Flow<List<OrderEntity>> = localDataSource.getAllOrder()
 
 }

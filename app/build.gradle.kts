@@ -54,9 +54,16 @@ dependencies {
     //Glide
     implementation("com.github.bumptech.glide:glide:4.15.1")
 
+    // Circle imageview
+    implementation("de.hdodenhof:circleimageview:3.1.0")
+
     // Room Database
     implementation("androidx.room:room-ktx:2.5.2")
     kapt("androidx.room:room-compiler:2.5.2")
+
+    //Coroutine Flow
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.1")
 
     //LiveData
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.7.0")

@@ -19,7 +19,6 @@ class DatabaseModule {
     @Singleton
     @Provides
     fun provideDatabase(@ApplicationContext context: Context): ProductDatabase {
-
         return Room.databaseBuilder(context, ProductDatabase::class.java, "Product.db")
             .addCallback(StartingProduct(context))
             .fallbackToDestructiveMigration()
