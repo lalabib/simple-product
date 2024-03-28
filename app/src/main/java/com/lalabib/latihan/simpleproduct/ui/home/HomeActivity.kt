@@ -1,13 +1,13 @@
 package com.lalabib.latihan.simpleproduct.ui.home
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.GridLayout
 import androidx.activity.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
-import com.lalabib.latihan.simpleproduct.R
 import com.lalabib.latihan.simpleproduct.adapter.ProductAdapter
 import com.lalabib.latihan.simpleproduct.databinding.ActivityHomeBinding
+import com.lalabib.latihan.simpleproduct.ui.detail.DetailActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -26,7 +26,12 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private fun setupData() {
-        productAdapter = ProductAdapter()
+        productAdapter = ProductAdapter { product ->
+            Intent(this@HomeActivity, DetailActivity::class.java).apply {
+                putExtra(DetailActivity.EXTRA_DATA, product.id)
+                startActivity(this)
+            }
+        }
 
         binding.rvProduct.apply {
             layoutManager = GridLayoutManager(this@HomeActivity, 2)

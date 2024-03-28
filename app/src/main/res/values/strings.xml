@@ -7,13 +7,18 @@
     <string name="login_title">Masuk</string>
 
     <string name="name">Name of Product</string>
-    <string name="desc">Deskripsi</string>
-    <string name="price">Price</string>
+    <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet consectetur adipiscing elit duis. Feugiat vivamus at augue eget arcu dictum varius duis.</string>
+    <string name="detail_product">Detail Produk</string>
+    <string name="description">Deskripsi Produk</string>
+    <string name="price">Rp78.000</string>
     <string name="image_description">deskripsi gambar</string>
     <string name="author">Penulis</string>
     <string name="publicationYear">Tahun Terbit</string>
     <string name="publisher">Penerbit</string>
-    <string name="notes">Note</string>
+    <string name="notes">Catatan Produk</string>
+    <string name="notes_hint">Tambahkan catatan untuk penjual..</string>
+    <string name="sum">Jumlah</string>
+    <string name="default_value">1</string>
 
     <string name="login_message">Selamat Datang di SimpleProdoct!</string>
     <string name="signup_message">Silakan lengkapi data Anda di bawah ini!</string>

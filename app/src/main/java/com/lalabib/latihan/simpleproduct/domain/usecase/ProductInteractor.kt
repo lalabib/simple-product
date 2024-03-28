@@ -10,4 +10,7 @@ class ProductInteractor @Inject constructor(private val productRepository: IProd
 
     override fun getAllProduct(): Flow<List<ProductEntity>> = productRepository.getAllProduct()
 
+    override fun getProductById(id: String): Flow<ProductEntity> =
+        productRepository.getProductById(id)
+
 }

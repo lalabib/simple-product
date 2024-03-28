@@ -1,6 +1,5 @@
 package com.lalabib.latihan.simpleproduct.adapter
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -12,7 +11,8 @@ import com.lalabib.latihan.simpleproduct.utils.SharedObject.loadImage
 import java.text.NumberFormat
 import java.util.Locale
 
-class ProductAdapter : ListAdapter<ProductEntity, ProductAdapter.ViewHolder>(ProductDiffUtil) {
+class ProductAdapter(private val onItemClick: (ProductEntity) -> Unit) :
+    ListAdapter<ProductEntity, ProductAdapter.ViewHolder>(ProductDiffUtil) {
 
     object ProductDiffUtil : DiffUtil.ItemCallback<ProductEntity>() {
         override fun areItemsTheSame(oldItem: ProductEntity, newItem: ProductEntity): Boolean {
@@ -26,7 +26,7 @@ class ProductAdapter : ListAdapter<ProductEntity, ProductAdapter.ViewHolder>(Pro
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding = ItemProductBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return ViewHolder(binding)
+        return ViewHolder(onItemClick, binding)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -37,18 +37,22 @@ class ProductAdapter : ListAdapter<ProductEntity, ProductAdapter.ViewHolder>(Pro
     }
 
     class ViewHolder(
+        private val onItemClick: (ProductEntity) -> Unit,
         private val binding: ItemProductBinding
     ) : RecyclerView.ViewHolder(binding.root) {
         fun bind(product: ProductEntity) {
             binding.apply {
                 val locale = Locale("id", "ID")
-                val formatter = NumberFormat.getCurrencyInstance(locale)
-                val formattedPrice = formatter.format(product.price)
+                val formatter = NumberFormat.getNumberInstance(locale)
+                formatter.maximumFractionDigits = 3
+                val formattedPrice = "Rp" + formatter.format(product.price)
 
                 tvName.text = product.name
                 tvPrice.text = formattedPrice
                 loadImage(ivImage, product.image)
             }
+
+            itemView.setOnClickListener { onItemClick(product) }
         }
     }
 }

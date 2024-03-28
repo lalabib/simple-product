@@ -10,8 +10,11 @@ import javax.inject.Singleton
 @Singleton
 class ProductRepository @Inject constructor(
     private val localDataSource: LocalDataSource
-): IProductRepository {
+) : IProductRepository {
 
     override fun getAllProduct(): Flow<List<ProductEntity>> = localDataSource.getAllProduct()
+
+    override fun getProductById(id: String): Flow<ProductEntity> =
+        localDataSource.getProductById(id)
 
 }

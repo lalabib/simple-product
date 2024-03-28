@@ -6,4 +6,6 @@ import kotlinx.coroutines.flow.Flow
 interface ProductUseCase {
 
     fun getAllProduct(): Flow<List<ProductEntity>>
+
+    fun getProductById(id: String): Flow<ProductEntity>
 }

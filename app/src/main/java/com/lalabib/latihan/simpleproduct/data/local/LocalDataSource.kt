@@ -12,4 +12,6 @@ class LocalDataSource @Inject constructor(private val productDao: ProductDao) {
     fun getAllProduct(): Flow<List<ProductEntity>> = productDao.getAllProduct()
 
     fun insertAllProduct(product: ProductEntity) = productDao.insertAllProduct(product)
+
+    fun getProductById(id: String): Flow<ProductEntity> = productDao.getProductById(id)
 }
