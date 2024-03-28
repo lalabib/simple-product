@@ -68,6 +68,9 @@ dependencies {
     //LiveData
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.7.0")
 
+    // Datastore
+    implementation("androidx.datastore:datastore-preferences:1.0.0")
+
     //by viewModels
     implementation("androidx.activity:activity-ktx:1.8.2")
 

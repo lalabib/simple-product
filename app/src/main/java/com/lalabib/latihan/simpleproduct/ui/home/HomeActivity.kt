@@ -10,7 +10,9 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.lalabib.latihan.simpleproduct.R
 import com.lalabib.latihan.simpleproduct.adapter.ProductAdapter
 import com.lalabib.latihan.simpleproduct.databinding.ActivityHomeBinding
+import com.lalabib.latihan.simpleproduct.ui.admin.AdminActivity
 import com.lalabib.latihan.simpleproduct.ui.detail.DetailActivity
+import com.lalabib.latihan.simpleproduct.ui.login.LoginActivity
 import com.lalabib.latihan.simpleproduct.ui.profile.ProfileActivity
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -26,7 +28,21 @@ class HomeActivity : AppCompatActivity() {
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        setupData()
+        setupUser()
+    }
+
+    private fun setupUser() {
+        homeViewModel.getUser.observe(this) { user ->
+            if (user.isLogin) {
+                if (user.role == getString(R.string.buyer)) {
+                    setupData()
+                } else {
+                    moveToAdmin()
+                }
+            } else {
+                moveToLogin()
+            }
+        }
     }
 
     private fun setupData() {
@@ -60,5 +76,14 @@ class HomeActivity : AppCompatActivity() {
             }
             else -> super.onOptionsItemSelected(item)
         }
+    }
+
+    private fun moveToLogin() {
+        startActivity(Intent(this@HomeActivity, LoginActivity::class.java))
+        finish()
+    }
+
+    private fun moveToAdmin() {
+        startActivity(Intent(this@HomeActivity, AdminActivity::class.java))
     }
 }

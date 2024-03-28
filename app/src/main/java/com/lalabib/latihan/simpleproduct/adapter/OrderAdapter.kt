@@ -1,5 +1,6 @@
 package com.lalabib.latihan.simpleproduct.adapter
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -37,6 +38,7 @@ class OrderAdapter : ListAdapter<OrderEntity, OrderAdapter.ViwHolder>(OrderDiffU
     class ViwHolder (
         private val binding: ItemOrderBinding
     ) : RecyclerView.ViewHolder(binding.root) {
+        @SuppressLint("SetTextI18n")
         fun bind(order: OrderEntity) {
             binding.apply {
                 val locale = Locale("id", "ID")
@@ -47,7 +49,7 @@ class OrderAdapter : ListAdapter<OrderEntity, OrderAdapter.ViwHolder>(OrderDiffU
 
                 tvName.text = order.name
                 tvNote.text = order.note
-                tvSumItem.text = order.quantity.toString()
+                tvSumItem.text = "x" + order.quantity.toString()
                 tvPrice.text = formattedPrice
                 tvSumPrice.text = formattedSumPrice
                 loadImage(ivImage, order.image)

@@ -2,6 +2,8 @@ package com.lalabib.latihan.simpleproduct.domain.usecase
 
 import com.lalabib.latihan.simpleproduct.data.local.entity.OrderEntity
 import com.lalabib.latihan.simpleproduct.data.local.entity.ProductEntity
+import com.lalabib.latihan.simpleproduct.data.local.entity.UserEntity
+import com.lalabib.latihan.simpleproduct.data.local.entity.UserPreferenceEntity
 import kotlinx.coroutines.flow.Flow
 
 interface ProductUseCase {
@@ -13,4 +15,16 @@ interface ProductUseCase {
     suspend fun insertOrder(order: OrderEntity)
 
     fun getAllOrder(): Flow<List<OrderEntity>>
+
+    suspend fun insertUser(user: UserEntity)
+
+    fun getAllUser(): Flow<List<UserEntity>>
+
+    fun getUser(): Flow<UserPreferenceEntity>
+
+    suspend fun saveUser(user: UserPreferenceEntity)
+
+    suspend fun login()
+
+    suspend fun logout()
 }

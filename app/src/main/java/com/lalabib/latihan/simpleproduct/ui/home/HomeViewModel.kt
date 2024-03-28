@@ -10,4 +10,6 @@ import javax.inject.Inject
 class HomeViewModel @Inject constructor(productUseCase: ProductUseCase) : ViewModel() {
 
     val getProduct = productUseCase.getAllProduct().asLiveData()
+
+    val getUser = productUseCase.getUser().asLiveData()
 }

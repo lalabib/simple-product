@@ -1,4 +1,4 @@
-package com.lalabib.latihan.simpleproduct.ui.profile
+package com.lalabib.latihan.simpleproduct.ui.admin
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
@@ -9,8 +9,10 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class ProfileViewModel @Inject constructor(private val productUseCase: ProductUseCase) :
+class AdminViewModel @Inject constructor(private val productUseCase: ProductUseCase) :
     ViewModel() {
+
+    val getAllOrder = productUseCase.getAllOrder().asLiveData()
 
     val getUser = productUseCase.getUser().asLiveData()
 

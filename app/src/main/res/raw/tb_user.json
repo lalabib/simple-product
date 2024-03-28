@@ -1,0 +1,10 @@
+{
+  "tb_user": [
+    {
+      "name": "Admin",
+	  "email": "labibbh21@gmail.com",
+	  "password": "admin123",
+	  "role": "admin"
+    }
+  ]
+}

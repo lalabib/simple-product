@@ -1,7 +1,11 @@
 package com.lalabib.latihan.simpleproduct.utils
 
+import android.content.Context
 import android.widget.ImageView
 import androidx.core.content.ContextCompat
+import androidx.datastore.core.DataStore
+import androidx.datastore.preferences.core.Preferences
+import androidx.datastore.preferences.preferencesDataStore
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.lalabib.latihan.simpleproduct.R
@@ -31,4 +35,6 @@ object SharedObject {
         setColorFilter(ContextCompat.getColor(context, R.color.blue_500))
         isClickable = true
     }
+
+    val Context.createDataStore: DataStore<Preferences> by preferencesDataStore("simpleProduct")
 }
