@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.widget.Toast
 import androidx.activity.viewModels
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.lalabib.latihan.simpleproduct.R
@@ -152,10 +153,14 @@ class DetailActivity : AppCompatActivity() {
                     )
                     detailViewModel.insertOrder(order)
 
-                    //get userdata
-//                    detailViewModel.getUser.observe(this@DetailActivity) { user ->
-//
-//                    }
+                    //get user data
+                    //detailViewModel.getUser.observe(this@DetailActivity) { user -> }
+
+                    Toast.makeText(
+                        this@DetailActivity,
+                        getString(R.string.order_confirm),
+                        Toast.LENGTH_SHORT
+                    ).show()
 
                     dialog.cancel()
                 }
