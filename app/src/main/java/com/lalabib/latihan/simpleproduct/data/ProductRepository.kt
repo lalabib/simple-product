@@ -14,7 +14,7 @@ import javax.inject.Singleton
 @Singleton
 class ProductRepository @Inject constructor(
     private val localDataSource: LocalDataSource,
-    private val pref: UserPreference
+    private val pref: UserPreference,
 ) : IProductRepository {
 
     override fun getAllProduct(): Flow<List<ProductEntity>> = localDataSource.getAllProduct()

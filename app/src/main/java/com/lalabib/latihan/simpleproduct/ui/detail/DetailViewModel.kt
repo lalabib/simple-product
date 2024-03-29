@@ -10,9 +10,12 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class DetailViewModel @Inject constructor(private val productUseCase: ProductUseCase) : ViewModel() {
+class DetailViewModel @Inject constructor(private val productUseCase: ProductUseCase) :
+    ViewModel() {
 
     fun getProductById(id: String) = productUseCase.getProductById(id).asLiveData()
+
+    val getUser = productUseCase.getUser().asLiveData()
 
     fun insertOrder(order: OrderEntity) {
         viewModelScope.launch {

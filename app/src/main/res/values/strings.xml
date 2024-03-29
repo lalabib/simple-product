@@ -46,6 +46,7 @@
     <string name="no">Tidak</string>
 
     <string name="order_confirm">Pesanan diproses</string>
+    <string name="order_error">Pesanan gagal diproses</string>
 
     <string name="btn_order">Beli Sekarang</string>
     <string name="btn_regist">Daftar Akun</string>

@@ -3,9 +3,7 @@ package com.lalabib.latihan.simpleproduct.ui.detail
 import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
-import android.widget.Toast
 import androidx.activity.viewModels
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.lalabib.latihan.simpleproduct.R
@@ -95,6 +93,15 @@ class DetailActivity : AppCompatActivity() {
         dialog.show()
 
         bsBinding.apply {
+            val locale = Locale("id", "ID")
+            val formatter = NumberFormat.getNumberInstance(locale)
+            formatter.maximumFractionDigits = 3
+            val formattedPrice = "Rp" + formatter.format(product.price)
+
+            tvName.text = product.name
+            tvPrice.text = formattedPrice
+            loadImage(ivImage, product.image)
+
             val decreaseBtn = bsBinding.decrease
             val increaseBtn = bsBinding.increase
             val count = bsBinding.count
@@ -122,21 +129,13 @@ class DetailActivity : AppCompatActivity() {
                 countChangeListener = listener
             }
 
-            val locale = Locale("id", "ID")
-            val formatter = NumberFormat.getNumberInstance(locale)
-            formatter.maximumFractionDigits = 3
-            val formattedPrice = "Rp" + formatter.format(product.price)
-
-            tvName.text = product.name
-            tvPrice.text = formattedPrice
-            loadImage(ivImage, product.image)
-
             registerCountListener { counter ->
                 val priceSum = product.price * counter
                 val formattedPriceSum = "Rp" + formatter.format(priceSum)
                 tvPrice.text = formattedPriceSum
 
                 bsBinding.btnOrder.setOnClickListener {
+                    //save data to order_tb
                     val notes = bsBinding.addNote.text.toString()
                     val order = OrderEntity(
                         id = product.id,
@@ -151,14 +150,14 @@ class DetailActivity : AppCompatActivity() {
                         quantity = counter,
                         sumPrice = priceSum
                     )
-
                     detailViewModel.insertOrder(order)
+
+                    //get userdata
+//                    detailViewModel.getUser.observe(this@DetailActivity) { user ->
+//
+//                    }
+
                     dialog.cancel()
-                    Toast.makeText(
-                        this@DetailActivity,
-                        getString(R.string.order_confirm),
-                        Toast.LENGTH_SHORT
-                    ).show()
                 }
             }
 
