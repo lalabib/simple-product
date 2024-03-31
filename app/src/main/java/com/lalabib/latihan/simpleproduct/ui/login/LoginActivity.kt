@@ -19,6 +19,7 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
     private val loginViewModel: LoginViewModel by viewModels()
     private lateinit var loggedInUser: UserEntity
+    private var isLoginSuccessful = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -59,7 +60,7 @@ class LoginActivity : AppCompatActivity() {
 
 
             loginViewModel.getAllUser.observe(this@LoginActivity) { users ->
-                var isLoginSuccessful = false
+                isLoginSuccessful = false
                 for (user in users) {
                     if (email == user.email && password == user.password) {
                         isLoginSuccessful = true
