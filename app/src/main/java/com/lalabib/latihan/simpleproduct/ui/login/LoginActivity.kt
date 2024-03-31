@@ -18,6 +18,7 @@ class LoginActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityLoginBinding
     private val loginViewModel: LoginViewModel by viewModels()
+    private lateinit var loggedInUser: UserEntity
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,6 +32,13 @@ class LoginActivity : AppCompatActivity() {
     private fun setupView() {
         supportActionBar?.apply {
             title = getString(R.string.login_title)
+        }
+    }
+
+    private fun setupAction() {
+        binding.apply {
+            btnLogin.setOnClickListener { setupLoginData() }
+            tvSignup.setOnClickListener { moveToSignup() }
         }
     }
 
@@ -49,7 +57,6 @@ class LoginActivity : AppCompatActivity() {
                 return
             }
 
-            var loggedInUser: UserEntity? = null
 
             loginViewModel.getAllUser.observe(this@LoginActivity) { users ->
                 var isLoginSuccessful = false
@@ -70,7 +77,7 @@ class LoginActivity : AppCompatActivity() {
 
                     val userPreferences = loggedInUser.let {
                         UserPreferenceEntity (
-                            name = it!!.name,
+                            name = it.name,
                             email = it.email,
                             password = it.password,
                             role = it.role,
@@ -82,13 +89,6 @@ class LoginActivity : AppCompatActivity() {
                     moveToHome()
                 }
             }
-        }
-    }
-
-    private fun setupAction() {
-        binding.apply {
-            btnLogin.setOnClickListener { setupLoginData() }
-            tvSignup.setOnClickListener { moveToSignup() }
         }
     }
 

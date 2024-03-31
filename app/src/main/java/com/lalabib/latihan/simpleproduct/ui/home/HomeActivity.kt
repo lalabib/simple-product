@@ -32,13 +32,9 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private fun setupUser() {
-        homeViewModel.getUser.observe(this) { user ->
+        homeViewModel.getUser.observe(this@HomeActivity) { user ->
             if (user.isLogin) {
-                if (user.role == getString(R.string.buyer)) {
-                    setupData()
-                } else {
-                    moveToAdmin()
-                }
+                setupData()
             } else {
                 moveToLogin()
             }

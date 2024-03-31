@@ -21,13 +21,13 @@ interface ProductDao {
     @Query("Select * from product_tb where id = :id")
     fun getProductById(id: String): Flow<ProductEntity>
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insertOrder(order: OrderEntity)
 
     @Query("Select * From order_tb")
     fun getAllOrder(): Flow<List<OrderEntity>>
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insertUser(user: UserEntity)
 
     @Query("Select * From user_tb")

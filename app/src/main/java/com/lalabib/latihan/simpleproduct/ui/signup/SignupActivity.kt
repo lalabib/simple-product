@@ -10,6 +10,7 @@ import com.lalabib.latihan.simpleproduct.data.local.entity.UserEntity
 import com.lalabib.latihan.simpleproduct.databinding.ActivitySignupBinding
 import com.lalabib.latihan.simpleproduct.ui.login.LoginActivity
 import dagger.hilt.android.AndroidEntryPoint
+import java.util.UUID
 
 @AndroidEntryPoint
 class SignupActivity : AppCompatActivity() {
@@ -52,10 +53,11 @@ class SignupActivity : AppCompatActivity() {
                 }
                 else -> {
                     val user = UserEntity (
+                        id = UUID.randomUUID().toString(),
                         name = username,
                         email = email,
                         password = password,
-                        role = role
+                        role = role,
                     )
                     signupViewModel.insertUser(user)
 

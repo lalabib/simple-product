@@ -19,6 +19,7 @@
 
         <TextView
             android:id="@+id/tv_name"
+            style="@style/tv_color"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
@@ -30,6 +31,7 @@
 
         <TextView
             android:id="@+id/tv_email"
+            style="@style/tv_color"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@string/email"
@@ -39,6 +41,7 @@
 
         <TextView
             android:id="@+id/tv_account"
+            style="@style/tv_color"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"

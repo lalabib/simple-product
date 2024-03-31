@@ -10,6 +10,7 @@
 
         <TextView
             android:id="@+id/tv_login_title"
+            style="@style/tv_color"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
@@ -81,15 +82,16 @@
 
         <TextView
             android:id="@+id/tv_signup"
+            style="@style/tv_color"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:layout_marginBottom="20dp"
             android:text="@string/signup_text"
-            app:layout_constraintStart_toStartOf="@id/btn_login"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@id/btn_login"
-            app:layout_constraintTop_toBottomOf="@id/btn_login"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            app:layout_constraintStart_toStartOf="@id/btn_login"
+            app:layout_constraintTop_toBottomOf="@id/btn_login" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

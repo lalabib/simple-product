@@ -4,7 +4,6 @@ import android.content.Context
 import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
 import com.lalabib.latihan.simpleproduct.R
-import com.lalabib.latihan.simpleproduct.data.local.entity.ProductEntity
 import com.lalabib.latihan.simpleproduct.data.local.entity.UserEntity
 import com.lalabib.latihan.simpleproduct.data.local.room.ProductDao
 import kotlinx.coroutines.CoroutineScope
@@ -44,10 +43,11 @@ class StartingUser @Inject constructor(
                     val item = jsonArray.getJSONObject(i)
                     //Using the JSON object to assign data, loaded to entity and insert to db
                     val user = UserEntity(
+                        item.getString("id"),
                         item.getString("name"),
                         item.getString("email"),
                         item.getString("password"),
-                        item.getString("role"),
+                        item.getString("role")
                     )
                     userProvider.get().insertUser(user)
                 }

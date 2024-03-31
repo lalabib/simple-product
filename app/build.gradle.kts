@@ -18,6 +18,7 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        buildConfigField("String", "Password", "\"jrsw zluo khez wyya\"")
     }
 
     buildTypes {
@@ -38,6 +39,19 @@ android {
     }
     buildFeatures {
         viewBinding = true
+        buildConfig = true
+    }
+
+    android {
+        packaging {
+            resources.excludes.apply {
+                add("META-INF/LICENSE.md")
+                add("META-INF/*.properties")
+                add("META-INF/AL2.0")
+                add("META-INF/LGPL2.1")
+                add("META-INF/NOTICE.md")
+            }
+        }
     }
 }
 
@@ -78,6 +92,7 @@ dependencies {
     implementation("com.google.dagger:hilt-android:2.44")
     kapt("com.google.dagger:hilt-compiler:2.44")
 
-    //maildroid
-    implementation("com.github.nedimf:maildroid:0.0.1")
+    //mail
+    implementation("com.sun.mail:android-mail:1.6.2")
+    implementation("com.sun.mail:android-activation:1.6.2")
 }

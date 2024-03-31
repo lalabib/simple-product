@@ -28,6 +28,7 @@
 
             <TextView
                 android:id="@+id/tv_price"
+                style="@style/tv_color"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -42,6 +43,7 @@
 
             <TextView
                 android:id="@+id/tv_name"
+                style="@style/tv_color"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
@@ -52,6 +54,7 @@
 
             <TextView
                 android:id="@+id/tv_detail_title"
+                style="@style/tv_color"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
@@ -63,6 +66,7 @@
 
             <TextView
                 android:id="@+id/tv_author_title"
+                style="@style/tv_color"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -73,6 +77,7 @@
 
             <TextView
                 android:id="@+id/tv_author"
+                style="@style/tv_color"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="70dp"
@@ -85,6 +90,7 @@
 
             <TextView
                 android:id="@+id/tv_publicationYear_title"
+                style="@style/tv_color"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -95,6 +101,7 @@
 
             <TextView
                 android:id="@+id/tv_publicationYear"
+                style="@style/tv_color"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="70dp"
@@ -107,6 +114,7 @@
 
             <TextView
                 android:id="@+id/tv_publisher_title"
+                style="@style/tv_color"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -117,6 +125,7 @@
 
             <TextView
                 android:id="@+id/tv_publisher"
+                style="@style/tv_color"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="70dp"
@@ -129,6 +138,7 @@
 
             <TextView
                 android:id="@+id/tv_desc_title"
+                style="@style/tv_color"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
@@ -140,6 +150,7 @@
 
             <TextView
                 android:id="@+id/tv_desc"
+                style="@style/tv_color"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"

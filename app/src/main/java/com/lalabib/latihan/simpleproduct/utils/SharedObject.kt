@@ -37,4 +37,9 @@ object SharedObject {
     }
 
     val Context.createDataStore: DataStore<Preferences> by preferencesDataStore("simpleProduct")
-}
+
+    const val SubjectEmail = "Konfirmasi Pesanan"
+    const val MailHost = "smtp.gmail.com"
+    const val Email = "simpleproduct.noreply@gmail.com"
+    const val EmailAdmin = "labibbh21@gmail.com"
+ }

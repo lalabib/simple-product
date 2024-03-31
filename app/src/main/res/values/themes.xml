@@ -25,6 +25,10 @@
         <item name="android:background">@drawable/bg_top_corner_light</item>
     </style>
 
+    <style name="tv_color">
+        <item name="android:textColor">@color/black</item>
+    </style>
+
     <style name="Profile_tv">
         <item name="android:clickable">true</item>
         <item name="android:focusable">true</item>

@@ -12,12 +12,19 @@ import com.lalabib.latihan.simpleproduct.data.local.entity.OrderEntity
 import com.lalabib.latihan.simpleproduct.data.local.entity.ProductEntity
 import com.lalabib.latihan.simpleproduct.databinding.ActivityDetailBinding
 import com.lalabib.latihan.simpleproduct.databinding.BottomSheetOderBinding
+import com.lalabib.latihan.simpleproduct.utils.EmailSender
+import com.lalabib.latihan.simpleproduct.utils.SharedObject.EmailAdmin
+import com.lalabib.latihan.simpleproduct.utils.SharedObject.SubjectEmail
 import com.lalabib.latihan.simpleproduct.utils.SharedObject.disableView
 import com.lalabib.latihan.simpleproduct.utils.SharedObject.enableView
 import com.lalabib.latihan.simpleproduct.utils.SharedObject.loadImage
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import java.text.NumberFormat
 import java.util.Locale
+import java.util.UUID
 
 @AndroidEntryPoint
 class DetailActivity : AppCompatActivity() {
@@ -106,6 +113,7 @@ class DetailActivity : AppCompatActivity() {
             val decreaseBtn = bsBinding.decrease
             val increaseBtn = bsBinding.increase
             val count = bsBinding.count
+            count.text = currentCount.toString()
             decreaseBtn.disableView()
 
             increaseBtn.setOnClickListener {
@@ -139,7 +147,7 @@ class DetailActivity : AppCompatActivity() {
                     //save data to order_tb
                     val notes = bsBinding.addNote.text.toString()
                     val order = OrderEntity(
-                        id = product.id,
+                        id = UUID.randomUUID().toString(),
                         name = product.name,
                         description = product.description,
                         price = product.price,
@@ -154,7 +162,25 @@ class DetailActivity : AppCompatActivity() {
                     detailViewModel.insertOrder(order)
 
                     //get user data
-                    //detailViewModel.getUser.observe(this@DetailActivity) { user -> }
+                    detailViewModel.getUser.observe(this@DetailActivity) { user ->
+                        CoroutineScope(Dispatchers.IO).launch {
+                            val subject = SubjectEmail
+                            val messageBodySender =
+                                "Hi ${user.name}, " +
+                                        "\n\nKonfirmasi pesanan atas nama ${user.name} memesan produk ${product.name} harga $formattedPrice sebanyak $counter pcs dengan jumlah $formattedPriceSum dan note: $notes."
+                            val messageBodyAdmin =
+                                "Hi Admin, \n\nKonfirmasi pesanan atas nama ${user.name} memesan produk ${product.name} harga $formattedPrice sebanyak $counter pcs dengan jumlah $formattedPriceSum dan note: $notes."
+                            val emailRecipientSender = user.email
+                            val emailRecipientAdmin = EmailAdmin
+                            EmailSender().sendMail(
+                                subject, messageBodySender, emailRecipientSender
+                            )
+                            EmailSender().sendMail(
+                                subject, messageBodyAdmin, emailRecipientAdmin
+                            )
+                        }
+
+                    }
 
                     Toast.makeText(
                         this@DetailActivity,
@@ -166,6 +192,7 @@ class DetailActivity : AppCompatActivity() {
                 }
             }
 
+            countChangeListener(currentCount)
             icClose.setOnClickListener { dialog.cancel() }
         }
     }
